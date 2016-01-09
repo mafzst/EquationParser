@@ -5,7 +5,7 @@ require_once('lib/EquationParser.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	$equation = new npsi\EquationParser($_POST['equation']);
+	$equation = new npsi\EquationParser($_POST['equation'], true);
 
 	var_dump($equation->get_hashCode());
 }

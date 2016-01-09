@@ -16,12 +16,15 @@ class EquationParser
 	private $reponse;
 	public $variables = array();
 
-	public function __construct($equation)
+	public function __construct($expression, $fromHash = false)
 	{
-		$this->equation = htmlentities(clean_spaces($equation));
 		//$this->parser = $parser;
-
-		return $this->parse();
+		if($fromHash) {
+			return $this->decodeHash($expression);
+		} else {
+			$this->equation = htmlentities(clean_spaces($expression));
+			return $this->parse();
+		}
 	}
 
 	public function parse() {
@@ -207,6 +210,24 @@ class EquationParser
 					return null;
 				}
 			}
+		}
+	}
+
+	public function decodeHash($hash)
+	{
+		$varSegments = array_filter(explode("@", $hash));
+
+		foreach ($varSegments as $segment) {
+			$variable = explode("?", $segment);
+			$this->variables[$variable[0]]['expression'] = explode("&", $variable[1])[0];
+			$this->variables[$variable[0]]['min'] =  explode("&", $variable[1])[1];
+			$this->variables[$variable[0]]['max'] =  explode("&", $variable[1])[2];
+			$this->variables[$variable[0]]['pas'] =  explode("&", $variable[1])[3];
+		}
+		if($this->get_hashCode() === $hash) {
+			return $this;
+		} else {
+			throw new Exception("Error Processing Request", 1);
 		}
 	}
 
