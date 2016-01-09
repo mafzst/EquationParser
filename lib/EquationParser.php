@@ -227,7 +227,7 @@ class EquationParser
 		if($this->get_hashCode() === $hash) {
 			return $this;
 		} else {
-			throw new Exception("Error Processing Request", 1);
+			throw new \Exception("Error Processing Request", 1);
 		}
 	}
 
@@ -344,7 +344,7 @@ class EquationParser
 				return "*";
 				break;
 			default:
-				throw new Exception("Unknown mathematical sign !", 1);
+				throw new \Exception("Unknown mathematical sign !", 1);
 		}
 	}
 
