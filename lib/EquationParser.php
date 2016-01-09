@@ -1,11 +1,13 @@
 <?php
 
+namespace npsi;
+
 require_once('functions.php');
 
 /*FIXME Problème au niveau de l'attribution des parenthèses lors de déplacements
 	de variables pour les résolutions.
 */
-class Equation
+class EquationParser
 {
 	private $equation;	//string
 	private $inconnue;	//string
