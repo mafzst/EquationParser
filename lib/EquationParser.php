@@ -292,6 +292,18 @@ class EquationParser
 		return $this->variables;
 	}
 
+	public function get_hashCode()
+	{
+		$string = "";
+
+		foreach ($this->variables as $var => $value) {
+			$string .= $var . "?";
+			$string .= $value['expression'] . '&' . $value['min'] . '&' . $value['max'] . '&' . $value['pas'] . '@';
+		}
+
+		return $string;
+	}
+
 	/**
 	 * Utilities
 	 */
