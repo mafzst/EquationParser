@@ -5,9 +5,15 @@ require_once('Equation.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	debug_var($equation = new Equation($_POST['equation']));
+	$equation = new Equation($_POST['equation']);
 
-	debug_var($equation);
+	$string = "";
+
+	foreach ($equation->variables as $var => $value) {
+		$string .= $var . "?";
+		$string .= $value['expression'] . '&' . $value['min'] . '&' . $value['max'] . '&' . $value['pas'] . '@';
+	}
+	var_dump($string);
 }
 ?>
 
