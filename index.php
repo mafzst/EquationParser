@@ -1,11 +1,11 @@
 <?php
-require_once('functions.php');
+require_once('lib/functions.php');
 
-require_once('Equation.php');
+require_once('lib/EquationParser.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	$equation = new Equation($_POST['equation']);
+	$equation = new npsi\EquationParser($_POST['equation']);
 
 	$string = "";
 

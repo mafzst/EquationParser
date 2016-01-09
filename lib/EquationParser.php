@@ -34,6 +34,10 @@ class EquationParser
 		$this->expression = $membres[1];
 
 		$this->variables[$variable]['expression'] = $this->expression;
+		//DUMMY CONTENT
+		$this->variables[$variable]['min'] = 1;
+		$this->variables[$variable]['max'] = 100;
+		$this->variables[$variable]['pas'] = 10;
 
 		$this->identify_blocs($this->expression );
 
