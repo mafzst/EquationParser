@@ -1,0 +1,12 @@
+{
+    "name": "npsi/equation-parser",
+    "description": "A PHP equations perser",
+    "license": "Apache License 2.0",
+    "authors": [
+        {
+            "name": "Nicolas Perraut",
+            "email": "n.perraut@gmail.com"
+        }
+    ],
+    "require": {}
+}
